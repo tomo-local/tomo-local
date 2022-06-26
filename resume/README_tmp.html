@@ -1,0 +1,655 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>README.md</title>
+    <meta http-equiv="Content-type" content="text/html;charset=UTF-8" />
+
+    <style>
+      /* https://github.com/microsoft/vscode/blob/master/extensions/markdown-language-features/media/markdown.css */
+      /*---------------------------------------------------------------------------------------------
+ *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Licensed under the MIT License. See License.txt in the project root for license information.
+ *--------------------------------------------------------------------------------------------*/
+
+      body {
+        font-family: var(
+          --vscode-markdown-font-family,
+          -apple-system,
+          BlinkMacSystemFont,
+          'Segoe WPC',
+          'Segoe UI',
+          'Ubuntu',
+          'Droid Sans',
+          sans-serif
+        );
+        font-size: var(--vscode-markdown-font-size, 14px);
+        padding: 0 26px;
+        line-height: var(--vscode-markdown-line-height, 22px);
+        word-wrap: break-word;
+      }
+
+      #code-csp-warning {
+        position: fixed;
+        top: 0;
+        right: 0;
+        color: white;
+        margin: 16px;
+        text-align: center;
+        font-size: 12px;
+        font-family: sans-serif;
+        background-color: #444444;
+        cursor: pointer;
+        padding: 6px;
+        box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.25);
+      }
+
+      #code-csp-warning:hover {
+        text-decoration: none;
+        background-color: #007acc;
+        box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.25);
+      }
+
+      body.scrollBeyondLastLine {
+        margin-bottom: calc(100vh - 22px);
+      }
+
+      body.showEditorSelection .code-line {
+        position: relative;
+      }
+
+      body.showEditorSelection .code-active-line:before,
+      body.showEditorSelection .code-line:hover:before {
+        content: '';
+        display: block;
+        position: absolute;
+        top: 0;
+        left: -12px;
+        height: 100%;
+      }
+
+      body.showEditorSelection li.code-active-line:before,
+      body.showEditorSelection li.code-line:hover:before {
+        left: -30px;
+      }
+
+      .vscode-light.showEditorSelection .code-active-line:before {
+        border-left: 3px solid rgba(0, 0, 0, 0.15);
+      }
+
+      .vscode-light.showEditorSelection .code-line:hover:before {
+        border-left: 3px solid rgba(0, 0, 0, 0.4);
+      }
+
+      .vscode-light.showEditorSelection .code-line .code-line:hover:before {
+        border-left: none;
+      }
+
+      .vscode-dark.showEditorSelection .code-active-line:before {
+        border-left: 3px solid rgba(255, 255, 255, 0.4);
+      }
+
+      .vscode-dark.showEditorSelection .code-line:hover:before {
+        border-left: 3px solid rgba(255, 255, 255, 0.6);
+      }
+
+      .vscode-dark.showEditorSelection .code-line .code-line:hover:before {
+        border-left: none;
+      }
+
+      .vscode-high-contrast.showEditorSelection .code-active-line:before {
+        border-left: 3px solid rgba(255, 160, 0, 0.7);
+      }
+
+      .vscode-high-contrast.showEditorSelection .code-line:hover:before {
+        border-left: 3px solid rgba(255, 160, 0, 1);
+      }
+
+      .vscode-high-contrast.showEditorSelection
+        .code-line
+        .code-line:hover:before {
+        border-left: none;
+      }
+
+      img {
+        max-width: 100%;
+        max-height: 100%;
+      }
+
+      a {
+        text-decoration: none;
+      }
+
+      a:hover {
+        text-decoration: underline;
+      }
+
+      a:focus,
+      input:focus,
+      select:focus,
+      textarea:focus {
+        outline: 1px solid -webkit-focus-ring-color;
+        outline-offset: -1px;
+      }
+
+      hr {
+        border: 0;
+        height: 2px;
+        border-bottom: 2px solid;
+      }
+
+      h1 {
+        padding-bottom: 0.3em;
+        line-height: 1.2;
+        border-bottom-width: 1px;
+        border-bottom-style: solid;
+      }
+
+      h1,
+      h2,
+      h3 {
+        font-weight: normal;
+      }
+
+      table {
+        border-collapse: collapse;
+      }
+
+      table > thead > tr > th {
+        text-align: left;
+        border-bottom: 1px solid;
+      }
+
+      table > thead > tr > th,
+      table > thead > tr > td,
+      table > tbody > tr > th,
+      table > tbody > tr > td {
+        padding: 5px 10px;
+      }
+
+      table > tbody > tr + tr > td {
+        border-top: 1px solid;
+      }
+
+      blockquote {
+        margin: 0 7px 0 5px;
+        padding: 0 16px 0 10px;
+        border-left-width: 5px;
+        border-left-style: solid;
+      }
+
+      code {
+        font-family: Menlo, Monaco, Consolas, 'Droid Sans Mono', 'Courier New',
+          monospace, 'Droid Sans Fallback';
+        font-size: 1em;
+        line-height: 1.357em;
+      }
+
+      body.wordWrap pre {
+        white-space: pre-wrap;
+      }
+
+      pre:not(.hljs),
+      pre.hljs code > div {
+        padding: 16px;
+        border-radius: 3px;
+        overflow: auto;
+      }
+
+      pre code {
+        color: var(--vscode-editor-foreground);
+        tab-size: 4;
+      }
+
+      /** Theming */
+
+      .vscode-light pre {
+        background-color: rgba(220, 220, 220, 0.4);
+      }
+
+      .vscode-dark pre {
+        background-color: rgba(10, 10, 10, 0.4);
+      }
+
+      .vscode-high-contrast pre {
+        background-color: rgb(0, 0, 0);
+      }
+
+      .vscode-high-contrast h1 {
+        border-color: rgb(0, 0, 0);
+      }
+
+      .vscode-light table > thead > tr > th {
+        border-color: rgba(0, 0, 0, 0.69);
+      }
+
+      .vscode-dark table > thead > tr > th {
+        border-color: rgba(255, 255, 255, 0.69);
+      }
+
+      .vscode-light h1,
+      .vscode-light hr,
+      .vscode-light table > tbody > tr + tr > td {
+        border-color: rgba(0, 0, 0, 0.18);
+      }
+
+      .vscode-dark h1,
+      .vscode-dark hr,
+      .vscode-dark table > tbody > tr + tr > td {
+        border-color: rgba(255, 255, 255, 0.18);
+      }
+    </style>
+
+    <style>
+      /* Tomorrow Theme */
+      /* http://jmblog.github.com/color-themes-for-google-code-highlightjs */
+      /* Original theme - https://github.com/chriskempson/tomorrow-theme */
+
+      /* Tomorrow Comment */
+      .hljs-comment,
+      .hljs-quote {
+        color: #8e908c;
+      }
+
+      /* Tomorrow Red */
+      .hljs-variable,
+      .hljs-template-variable,
+      .hljs-tag,
+      .hljs-name,
+      .hljs-selector-id,
+      .hljs-selector-class,
+      .hljs-regexp,
+      .hljs-deletion {
+        color: #c82829;
+      }
+
+      /* Tomorrow Orange */
+      .hljs-number,
+      .hljs-built_in,
+      .hljs-builtin-name,
+      .hljs-literal,
+      .hljs-type,
+      .hljs-params,
+      .hljs-meta,
+      .hljs-link {
+        color: #f5871f;
+      }
+
+      /* Tomorrow Yellow */
+      .hljs-attribute {
+        color: #eab700;
+      }
+
+      /* Tomorrow Green */
+      .hljs-string,
+      .hljs-symbol,
+      .hljs-bullet,
+      .hljs-addition {
+        color: #718c00;
+      }
+
+      /* Tomorrow Blue */
+      .hljs-title,
+      .hljs-section {
+        color: #4271ae;
+      }
+
+      /* Tomorrow Purple */
+      .hljs-keyword,
+      .hljs-selector-tag {
+        color: #8959a8;
+      }
+
+      .hljs {
+        display: block;
+        overflow-x: auto;
+        color: #4d4d4c;
+        padding: 0.5em;
+      }
+
+      .hljs-emphasis {
+        font-style: italic;
+      }
+
+      .hljs-strong {
+        font-weight: bold;
+      }
+    </style>
+
+    <style>
+      /*
+ * Markdown PDF CSS
+ */
+
+      body {
+        font-family: -apple-system, BlinkMacSystemFont, 'Segoe WPC', 'Segoe UI',
+          'Ubuntu', 'Droid Sans', sans-serif, 'Meiryo';
+        padding: 0 12px;
+      }
+
+      pre {
+        background-color: #f8f8f8;
+        border: 1px solid #cccccc;
+        border-radius: 3px;
+        overflow-x: auto;
+        white-space: pre-wrap;
+        overflow-wrap: break-word;
+      }
+
+      pre:not(.hljs) {
+        padding: 23px;
+        line-height: 19px;
+      }
+
+      blockquote {
+        background: rgba(127, 127, 127, 0.1);
+        border-color: rgba(0, 122, 204, 0.5);
+      }
+
+      .emoji {
+        height: 1.4em;
+      }
+
+      code {
+        font-size: 14px;
+        line-height: 19px;
+      }
+
+      /* for inline code */
+      :not(pre):not(.hljs) > code {
+        color: #c9ae75; /* Change the old color so it seems less like an error */
+        font-size: inherit;
+      }
+
+      /* Page Break : use <div class="page"/> to insert page break
+-------------------------------------------------------- */
+      .page {
+        page-break-after: always;
+      }
+    </style>
+
+    <script src="https://unpkg.com/mermaid/dist/mermaid.min.js"></script>
+  </head>
+  <body>
+    <script>
+      mermaid.initialize({
+        startOnLoad: true,
+        theme:
+          document.body.classList.contains('vscode-dark') ||
+          document.body.classList.contains('vscode-high-contrast')
+            ? 'dark'
+            : 'default',
+      });
+    </script>
+    <h2 id="%E8%81%B7%E5%8B%99%E7%B5%8C%E6%AD%B4%E6%9B%B8">職務経歴書</h2>
+    <hr />
+    <h2 id="pr">PR</h2>
+    <p>
+      プログラミングスクールに入り、ほぼ独学で php
+      を学び始めました。最初に業務委託をこなった会社で 海外製の SaaS の ERP
+      のカスタマイズから導入、業務設計などを行い、その後に入社し上流から下流まで一通り一人でできるようになりました。
+      今では、SaaS 導入のメンバーの開発リーダとして活躍してます。 現在の会社が
+      SaaS 連携を事業として行っている会社なので API
+      連携に対しての知識があります。私が導入をしている ERP
+      と他のシステムとの連携の提案もお客様に行ったこともあります。ERP
+      導入しながらの連携提案だとお客様固有の連携になりやすいのですが、できるだけお客様固有にならないように考慮し、汎用的に仕様の検討を行いました。
+      海外製の SaaS の ERP
+      だったので、情報が日本語であまりなく英語での検索や、仮設を立てて検証をしたりを行っていまいた。なので自分で調べるたり調査する能力はあると思います。
+    </p>
+    <hr />
+    <h2 id="%E8%A8%80%E8%AA%9E">言語</h2>
+    <ul>
+      <li>javascript</li>
+      <li>typescript</li>
+      <li>docker</li>
+      <li>html</li>
+      <li>css</li>
+      <li>React</li>
+      <li>python3</li>
+      <li>MySql</li>
+      <li>Django</li>
+      <li>Bash</li>
+      <li>Zsh</li>
+      <li>ShellScript</li>
+      <li>FreeMarker</li>
+      <li>php</li>
+      <li>Laravel</li>
+      <li>OracleSql</li>
+    </ul>
+    <hr />
+    <h2 id="%E3%83%97%E3%83%AD%E3%82%B8%E3%82%A7%E3%82%AF%E3%83%88">
+      プロジェクト
+    </h2>
+    <hr />
+    <h3
+      id="erp-%E5%B8%B3%E7%A5%A8%E3%82%AB%E3%82%B9%E3%82%BF%E3%83%9E%E3%82%A4%E3%82%BA"
+    >
+      ERP 帳票カスタマイズ
+    </h3>
+    <h4 id="%E6%9C%9F%E9%96%93">期間</h4>
+    <p>2019 年 10 月 ~ 2020 年 12 月</p>
+    <h4 id="%E8%A9%B3%E7%B4%B0">詳細</h4>
+    <p>
+      ERP
+      に搭載されている帳票カスタマイズツールを使用し、見積書、注文書などのお客様に送付する書類の帳票開発に参加しました。お客さんと
+      Backlog でやり取りをおこない仕様を確認しながら開発を行いました。
+    </p>
+    <h4 id="%E4%BD%BF%E7%94%A8%E3%83%84%E3%83%BC%E3%83%AB">使用ツール</h4>
+    <ul>
+      <li>html</li>
+      <li>css</li>
+      <li>xml</li>
+      <li>FreeMarker</li>
+      <li>Backlog</li>
+      <li>gitlab</li>
+    </ul>
+    <hr />
+    <h3
+      id="erp-%E3%81%AE%E3%83%AC%E3%83%9D%E3%83%BC%E3%83%88%E3%82%AB%E3%82%B9%E3%82%BF%E3%83%9E%E3%82%A4%E3%82%BA"
+    >
+      ERP のレポートカスタマイズ
+    </h3>
+    <h4 id="%E6%9C%9F%E9%96%93">期間</h4>
+    <p>2020 年 1 月 ~ 2020 年 3 月</p>
+    <h4 id="%E8%A9%B3%E7%B4%B0">詳細</h4>
+    <p>
+      ERP
+      に搭載されているレポート開発機能を使用し、受注一覧などの業務に必要なレポート開発に参加しました。UI
+      での設定で実装が難しいところは SQL を書き実装を行いました。
+    </p>
+    <h4 id="%E4%BD%BF%E7%94%A8%E3%83%84%E3%83%BC%E3%83%AB">使用ツール</h4>
+    <ul>
+      <li>OracleSQL</li>
+      <li>Backlog</li>
+    </ul>
+    <hr />
+    <h3
+      id="erp-%E3%81%AE%E3%83%AC%E3%83%B3%E3%82%BF%E3%83%AB%E7%AE%A1%E7%90%86%E6%A9%9F%E8%83%BD%E3%81%AE%E5%A4%A7%E8%A6%8F%E6%A8%A1%E3%82%AB%E3%82%B9%E3%82%BF%E3%83%9E%E3%82%A4%E3%82%BA"
+    >
+      ERP のレンタル管理機能の大規模カスタマイズ
+    </h3>
+    <h4 id="%E6%9C%9F%E9%96%93">期間</h4>
+    <p>2020 年 4 月 ~ 2021 年 3 月</p>
+    <h4 id="%E8%A9%B3%E7%B4%B0">詳細</h4>
+    <p>
+      ERP に機材のリース管理をする機能を 1
+      からカスタマイズするプロジェクトに参加しました。初期メンバー 3 人で 1
+      からお客様にヒアリングを行い、仕様を決定して実装、テストを行いました。プロジェクト途中で初期メンバーが自分ひとりになり、全体の仕様を把握しているのが自分しかいない状況になり大変なプロジェクトでした。ですが、いろいろな経験をすることができ成長することができたプロジェクトでした。
+    </p>
+    <h4 id="%E4%BD%BF%E7%94%A8%E3%83%84%E3%83%BC%E3%83%AB">使用ツール</h4>
+    <ul>
+      <li>OracleSQL</li>
+      <li>javascript</li>
+      <li>html</li>
+      <li>css</li>
+      <li>xml</li>
+      <li>FreeMarker</li>
+      <li>Backlog</li>
+    </ul>
+    <hr />
+    <h3
+      id="it-%E4%BC%81%E6%A5%AD%E3%81%B8%E3%81%AE-erp-%E5%B0%8E%E5%85%A5%E6%A5%AD%E5%8B%99%E8%A8%AD%E8%A8%88"
+    >
+      IT 企業への ERP 導入、業務設計
+    </h3>
+    <h4 id="%E6%9C%9F%E9%96%93">期間</h4>
+    <p>2021 年 4 月 ~ 2021 年 12 月</p>
+    <h4 id="%E8%A9%B3%E7%B4%B0">詳細</h4>
+    <p>
+      IT システム系の企業への ERP
+      導入プロジェクト。現在の業務がシステム化はされて入るが、人依存な傾向があり全体の業務を把握しているメンバーがいない状況からはじまり、お客様と一緒に業務フローの洗い出しから問題の整理などを行いプロジェクトを進行。入力補完機能などの実装テストもあり。プロジェクト全体の進捗が乏しく、大まかな全体の業務フローを構築し
+      12 月でプロジェクトが凍結し終了しました。
+    </p>
+    <h4 id="%E4%BD%BF%E7%94%A8%E3%83%84%E3%83%BC%E3%83%AB">使用ツール</h4>
+    <ul>
+      <li>javascript</li>
+      <li>Backlog</li>
+      <li>spreadsheet</li>
+      <li>slack</li>
+    </ul>
+    <hr />
+    <h3
+      id="erp-%E3%81%AE-api-%E3%82%A8%E3%83%B3%E3%83%89%E3%83%9D%E3%82%A4%E3%83%B3%E3%81%A8%E3%82%AB%E3%82%B9%E3%82%BF%E3%83%9E%E3%82%A4%E3%82%BA%E9%96%8B%E7%99%BA"
+    >
+      ERP の API エンドポインとカスタマイズ開発
+    </h3>
+    <h4 id="%E6%9C%9F%E9%96%93">期間</h4>
+    <p>2021 年 8 月 ~ 2021 年 10 月</p>
+    <h4 id="%E8%A9%B3%E7%B4%B0">詳細</h4>
+    <p>
+      ERP に EC サイトから受注データを登録する API を実装。ERP
+      の仕様で外部ライブラリ-が使用できなかったため、json の値検証などを 1
+      から実装し開発をおこないました。
+    </p>
+    <h4 id="%E4%BD%BF%E7%94%A8%E3%83%84%E3%83%BC%E3%83%AB">使用ツール</h4>
+    <ul>
+      <li>javascript</li>
+      <li>Backlog</li>
+      <li>slack</li>
+    </ul>
+    <hr />
+    <h3
+      id="%E5%AE%87%E5%AE%99%E9%96%8B%E7%99%BA%E4%BC%81%E6%A5%AD%E3%81%B8%E3%81%AE-erp-%E5%B0%8E%E5%85%A5%E8%A8%AD%E8%A8%88%E3%82%B7%E3%82%B9%E3%83%86%E3%83%A0%E3%81%A8%E3%81%AE%E3%83%95%E3%82%A1%E3%82%A4%E3%83%AB%E9%80%A3%E6%90%BA%E5%B8%B3%E7%A5%A8%E3%82%AB%E3%82%B9%E3%82%BF%E3%83%9E%E3%82%A4%E3%82%BA"
+    >
+      宇宙開発企業への ERP 導入、設計システムとのファイル連携、帳票カスタマイズ
+    </h3>
+    <h4 id="%E6%9C%9F%E9%96%93">期間</h4>
+    <p>2021 年 8 月 ~ 2022 年 3 月</p>
+    <h4 id="%E8%A9%B3%E7%B4%B0">詳細</h4>
+    <p>
+      宇宙開発ベンチャ企業に購買管理と在庫管理について ERP
+      の導入を行いました。設計システムから BOM
+      を日時で連携するためのカスタマイズを実装しました。デイリーでお客様と打ち合わせを行い仕様を確認しながら開発しまいた。SFTP
+      を使用したファイル連携で、BOM
+      の構成を樹木構造に変換しデータ登録、更新を実装しました。こちらも外部ライブラリーが使用できなかったため外部ライブラリーのコードを読み同様の仕様を実装しました。お客様の都合で運用開始が延長しデータ移行はせずプロジェクトが終了。
+    </p>
+    <h4 id="%E4%BD%BF%E7%94%A8%E3%83%84%E3%83%BC%E3%83%AB">使用ツール</h4>
+    <ul>
+      <li>OracleSQL</li>
+      <li>javascript</li>
+      <li>html</li>
+      <li>css</li>
+      <li>xml</li>
+      <li>FreeMarker</li>
+      <li>Backlog</li>
+    </ul>
+    <hr />
+    <h3
+      id="%E3%82%B3%E3%82%B9%E3%83%A1%E4%BC%81%E6%A5%AD%E3%81%AE-erp-%E5%B0%8E%E5%85%A5%E5%80%89%E5%BA%AB%E3%81%A8%E3%81%AE%E3%83%95%E3%82%A1%E3%82%A4%E3%83%AB%E9%80%A3%E6%90%BA"
+    >
+      コスメ企業の ERP 導入、倉庫とのファイル連携
+    </h3>
+    <h4 id="%E6%9C%9F%E9%96%93">期間</h4>
+    <p>2021 年 10 月 ~ 2022 年 4 月</p>
+    <h4 id="%E8%A9%B3%E7%B4%B0">詳細</h4>
+    <p>
+      コスメ企業への ERP 導入。EC
+      サイトとのファイル連携の仕様、倉庫と出庫入庫のファイル連携の開発を担当。ERP
+      の仕様と各システムとの制限を考慮し調整を行いながら開発を行いました。ファイル形式での連携がほかプロジェクトでもあったので、ライブラリー化を行い別開発でも使用できるように実装。
+    </p>
+    <h4 id="%E4%BD%BF%E7%94%A8%E3%83%84%E3%83%BC%E3%83%AB">使用ツール</h4>
+    <ul>
+      <li>OracleSQL</li>
+      <li>javascript</li>
+      <li>html</li>
+      <li>css</li>
+      <li>xml</li>
+      <li>FreeMarker</li>
+      <li>Backlog</li>
+      <li>Teams</li>
+      <li>gas</li>
+    </ul>
+    <hr />
+    <h3
+      id="%E5%AE%87%E5%AE%99%E9%96%8B%E7%99%BA%E4%BC%81%E6%A5%AD%E3%81%B8%E3%81%AE-erp-%E4%BF%9D%E5%AE%88"
+    >
+      宇宙開発企業への ERP 保守
+    </h3>
+    <h4 id="%E6%9C%9F%E9%96%93">期間</h4>
+    <p>2022 年 4 月 ~ 2022 年 7 月</p>
+    <h4 id="%E8%A9%B3%E7%B4%B0">詳細</h4>
+    <p>
+      運用開始はせずにプロジェクトは終了しましたが、各業務を行う上で新たに必要になったレポートや、別機能の調査を行いました。内容によっては別見積もりで契約を行い実装を行いました。
+    </p>
+    <h4 id="%E4%BD%BF%E7%94%A8%E3%83%84%E3%83%BC%E3%83%AB">使用ツール</h4>
+    <ul>
+      <li>OracleSQL</li>
+      <li>javascript</li>
+    </ul>
+    <hr />
+    <h3
+      id="it-%E4%BC%81%E6%A5%AD%E3%81%B8%E3%81%AE-erp-%E5%B0%8E%E5%85%A5%E6%A5%AD%E5%8B%99%E8%A8%AD%E8%A8%88%E6%96%B0%E5%8F%8E%E7%9B%8A%E8%AA%8D%E8%AD%98%E5%AF%BE%E5%BF%9C%E3%83%87%E3%83%BC%E3%82%BF%E7%A7%BB%E8%A1%8C"
+    >
+      IT 企業への ERP 導入、業務設計、新収益認識対応、データ移行
+    </h3>
+    <h4 id="%E6%9C%9F%E9%96%93">期間</h4>
+    <p>2022 年 4 月 ~ 2022 年 10 月</p>
+    <h4 id="%E8%A9%B3%E7%B4%B0">詳細</h4>
+    <p>
+      2021
+      年で終了したプロジェクトの再開。前回で作った業務フローの検証、別システムとの連携などを行いました。
+      全フェーズで未対応だった IFRS
+      での収益認識をヒアリングし設定（この機能を日本企業で導入するのは初）、帳票発行システムとの連携の仕様案の提案、実装、入金消込システムとの連携の仕様案の提案、実装
+    </p>
+    <h4 id="%E4%BD%BF%E7%94%A8%E3%83%84%E3%83%BC%E3%83%AB">使用ツール</h4>
+    <ul>
+      <li>OracleSQL</li>
+      <li>javascript</li>
+      <li>html</li>
+      <li>css</li>
+      <li>xml</li>
+      <li>FreeMarker</li>
+      <li>Backlog</li>
+      <li>spreadsheet</li>
+    </ul>
+    <hr />
+    <h3
+      id="%E3%83%95%E3%83%AD%E3%83%B3%E3%83%88%E3%82%A8%E3%83%B3%E3%83%89%E3%82%92-react-%E3%81%AB%E3%83%AA%E3%83%95%E3%82%A1%E3%82%AF%E3%82%BF%E3%83%AA%E3%83%B3%E3%82%B0%E5%80%8B%E4%BA%BA"
+    >
+      フロントエンドを React にリファクタリング（個人）
+    </h3>
+    <h4 id="%E6%9C%9F%E9%96%93">期間</h4>
+    <p>2021 年 9 月 ~ 2021 年 10 月</p>
+    <h4 id="%E8%A9%B3%E7%B4%B0">詳細</h4>
+    <p>
+      友人が参加していた、イベントサイトのフロントエンドを React
+      にリファクタリングするために参加しました。
+      すでにデザインは開発済みだったので、コードをコンポーネント化をおこない修正を行いました。
+      Uint
+      テストは自動テストを自分で記載して開発を行いました。ピンポイントでの参加だったため
+      1 ヶ月で終了しました。
+    </p>
+    <h4 id="%E4%BD%BF%E7%94%A8%E3%83%84%E3%83%BC%E3%83%AB">使用ツール</h4>
+    <ul>
+      <li>React</li>
+      <li>jest</li>
+      <li>Ruby</li>
+      <li>Ruby on Rails</li>
+      <li>html</li>
+      <li>css</li>
+      <li>Backlog</li>
+      <li>spreadsheet</li>
+      <li>github</li>
+    </ul>
+    <hr />
+  </body>
+</html>
