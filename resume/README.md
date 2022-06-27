@@ -15,8 +15,8 @@
 
 | 言語        | 年数 | レベル |
 | ----------- | ---- | ------ |
-| javascript  | 2 年 | 中級   |
-| typescript  | 半年 | 初級   |
+| javascript  | 3 年 | 中級   |
+| typescript  | 1 年 | 初級   |
 | React       | 1 年 | 初級   |
 | docker      | 2 年 | 中級   |
 | html        | 2 年 | 中級   |
