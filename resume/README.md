@@ -13,22 +13,24 @@
 
 ## 言語
 
-- javascript
-- typescript
-- docker
-- html
-- css
-- React
-- python3
-- MySql
-- Django
-- Bash
-- Zsh
-- ShellScript
-- FreeMarker
-- php
-- Laravel
-- OracleSql
+| 言語        | 年数 | レベル |
+| ----------- | ---- | ------ |
+| javascript  | 2 年 | 中級   |
+| typescript  | 半年 | 初級   |
+| React       | 1 年 | 初級   |
+| docker      | 2 年 | 中級   |
+| html        | 2 年 | 中級   |
+| css         | 2 年 | 中級   |
+| python3     | 3 年 | 中級   |
+| Mysql       | 1 年 | 中級   |
+| Django      | 1 年 | 初級   |
+| Bash        | 3 年 | 中級   |
+| Zsh         | 2 年 | 中級   |
+| ShellScript | 2 年 | 中級   |
+| FreeMarker  | 3 年 | 中級   |
+| PHP         | 1 年 | 中級   |
+| Laravel     | 1 年 | 初級   |
+| OracleSql   | 3 年 | 中級   |
 
 ---
 
