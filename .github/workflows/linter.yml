@@ -1,0 +1,28 @@
+name: linter
+
+on:
+  pull_request:
+    branches:
+      - main
+      - staging
+      - develop
+      - feature/*
+  push:
+    branches:
+      - main
+      - staging
+      - develop
+      - feature/*
+
+jobs:
+  textlint:
+    name: lint
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: pnpm/action-setup@v2.2.2
+        with:
+          version: 7.1.0
+      - run: pnpm install
+      - run: pnpm run lint
