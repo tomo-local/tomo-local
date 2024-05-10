@@ -1,2 +1,6 @@
 resume.json
 .DS_Store
+
+node_modules/
+.vscode/
+.cache
