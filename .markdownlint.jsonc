@@ -1,6 +1,9 @@
 {
-  "MD013": {
-    "line_length": 90 // 一行の文字数
+  "MD033": {
+    "allowed_elements": ["p", "img"]
   },
-  "MD041": false // true: ファイルの最初の行は、トップレベルの見出しにする
+  "MD013": {
+    "line_length": 150
+  },
+  "MD041": false
 }
