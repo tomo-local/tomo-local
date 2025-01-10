@@ -23,6 +23,6 @@ jobs:
       - uses: actions/checkout@v4
       - uses: pnpm/action-setup@v2.2.2
         with:
-          version: 7.1.0
+          version: latest
       - run: pnpm install
       - run: pnpm run lint
