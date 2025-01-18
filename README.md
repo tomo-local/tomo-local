@@ -1,6 +1,6 @@
 ### Hi there
 
-I'm Tomo, a software engineer in Japan.
+I’m Tomo, a software engineer in Japan.
 
 [resume](https://tomo-local.github.io/tomo-local/doc)
 
