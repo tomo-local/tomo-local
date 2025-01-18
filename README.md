@@ -1,4 +1,8 @@
-### Hi there 👋
+### Hi there
+
+I’m Tomo, a software engineer in Japan.
+
+[resume](https://tomo-local.github.io/tomo-local/doc)
 
 [![tomo-local's GitHub stats](https://github-readme-stats.vercel.app/api?username=tomo-local&theme=vue-dark&show_icons=true&hide_title=true&rank_icon=github&count_private=true)](https://github.com/tomo-local)
 [![Top Langs](https://github-readme-stats.vercel.app/api/top-langs/?username=tomo-local&theme=vue-dark&show_icons=true&layout=compact&hide=Assembly,scilab,Batchfile,PlpgSql)](https://github.com/tomo-local)
