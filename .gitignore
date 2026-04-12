@@ -4,3 +4,6 @@ resume.json
 node_modules/
 .vscode/
 .cache
+
+dist/
+build/
