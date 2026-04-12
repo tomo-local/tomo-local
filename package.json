@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "lint": "textlint . && markdownlint **/*.md"
+    "lint": "textlint . && markdownlint **/*.md",
+    "generate": "./resume/src/build/doc -config ./resume/build.config.json -output ./resume/README.md"
   },
   "keywords": [],
   "author": "",

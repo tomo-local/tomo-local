@@ -18,6 +18,7 @@ package main
 
 import (
 	"encoding/json"
+	"flag"
 	"fmt"
 	"os"
 	"path/filepath"
@@ -87,15 +88,17 @@ func build(config Config, baseDir string) (output string, err error) {
 }
 
 func main() {
-	configPath := "build.config.json"
+	configPath := flag.String("config", "build.config.json", "path to build config JSON file")
+	outputFlag := flag.String("output", "", "output file path (overrides config)")
+	flag.Parse()
 
-	config, err := loadConfig(configPath)
+	config, err := loadConfig(*configPath)
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "failed to load config: %v\n", err)
 		os.Exit(1)
 	}
 
-	baseDir := filepath.Dir(configPath)
+	baseDir := filepath.Dir(*configPath)
 
 	output, err := build(*config, baseDir)
 	if err != nil {
@@ -103,11 +106,16 @@ func main() {
 		os.Exit(1)
 	}
 
-	err = os.WriteFile(config.Output, []byte(output), 0644)
+	outputPath := config.Output
+	if *outputFlag != "" {
+		outputPath = *outputFlag
+	}
+
+	err = os.WriteFile(outputPath, []byte(output), 0644)
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "failed to write output: %v\n", err)
 		os.Exit(1)
 	}
 
-	fmt.Printf("generated %s\n", config.Output)
+	fmt.Printf("generated %s\n", outputPath)
 }
