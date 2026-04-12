@@ -1,0 +1,35 @@
+{
+  "output": "README.md",
+  "title": "# 職務経歴書",
+  "sections": [
+    {
+      "heading": "## 職務要約",
+      "file": "parts/summary.md"
+    },
+    {
+      "heading": "## スキルレベル",
+      "file": "parts/skills.md"
+    },
+    {
+      "heading": "## 職務経歴",
+      "file": "parts/career_table.md"
+    },
+    {
+      "heading": "## 職務経歴 (詳細)",
+      "files": [
+        "parts/companies/hireroo.md",
+        "parts/companies/shearwater.md",
+        "parts/companies/byard.md",
+        "parts/companies/strategit.md"
+      ]
+    },
+    {
+      "heading": "## その他の活動",
+      "file": "parts/other_activities.md"
+    },
+    {
+      "heading": "## 自己 PR",
+      "file": "parts/self_pr.md"
+    }
+  ]
+}
