@@ -2,12 +2,6 @@
   <img src="https://readme-typing-svg.herokuapp.com?font=Fira+Code&weight=600&size=28&pause=1000&color=41B883&center=true&vCenter=true&random=false&width=600&lines=Hi+there+%F0%9F%91%8B+I'm+Tomo;Full-Stack+Engineer+from+Japan;React+%7C+TypeScript+%7C+Go" alt="Typing SVG" />
 </h1>
 
-<p align="center">
-  <a href="https://github.com/tomo-local">
-    <img src="https://img.shields.io/github/followers/tomo-local?label=Follow&style=social" alt="GitHub followers" />
-  </a>
-</p>
-
 ---
 
 ### 🛠 Tech Stack
