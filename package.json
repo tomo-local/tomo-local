@@ -4,8 +4,10 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "lint": "textlint . && markdownlint **/*.md",
-    "generate": "./resume/src/build/doc -config ./resume/build.config.json -output ./resume/README.md"
+    "lint": "textlint . && markdownlint '**/*.md'",
+    "lint-fix": "textlint --fix . && markdownlint --fix '**/*.md'",
+    "generate": "./resume/src/build/doc -config ./resume/build.config.json -output ./resume/README.md",
+    "prepare": "husky"
   },
   "keywords": [],
   "author": "",
@@ -15,6 +17,8 @@
     "@textlint-ja/textlint-rule-no-dropping-i": "^2.0.1",
     "@textlint-ja/textlint-rule-no-insert-dropping-sa": "^2.0.1",
     "@textlint-rule/textlint-rule-no-unmatched-pair": "^2.0.2",
+    "husky": "^9.1.7",
+    "lint-staged": "^16.4.0",
     "markdownlint-cli": "^0.40.0",
     "textlint": "^14.0.4",
     "textlint-filter-rule-comments": "^1.2.2",
