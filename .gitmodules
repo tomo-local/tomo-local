@@ -1,7 +1,3 @@
-[submodule "interview"]
-	path = interview
-	url = https://github.com/tomo-local/interview-docs.git
-	branch = main
 [submodule "zenn"]
 	path = zenn
 	url = https://github.com/tomo-local/zenn-connect.git
