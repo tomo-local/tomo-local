@@ -7,6 +7,7 @@
     "lint": "textlint .",
     "lint-fix": "textlint --fix",
     "generate": "./resume/src/build/doc -config ./resume/build.config.json -output ./resume/README.md",
+    "pdf": "npx md-to-pdf resume/README.md",
     "prepare": "husky"
   },
   "keywords": [],
